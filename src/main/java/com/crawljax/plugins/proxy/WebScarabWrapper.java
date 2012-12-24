@@ -31,7 +31,6 @@ public class WebScarabWrapper implements ProxyServerPlugin {
 	 */
 	private Proxy proxy;
 
-	@Override
 	public void proxyServer(ProxyConfiguration config) {
 		try {
 			startProxy(config);
