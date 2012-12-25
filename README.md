@@ -14,7 +14,7 @@ Make sure to add the Crawljax Maven repository to your pom.xml:
     <repositories>
       <repository>
       <id>crawljax.mvn.repo</id>
-      <url>https://github.com/crawljax/mvn-repo/raw/master</url>
+      <url>https://github.com/crawljax/crawljax-mvn-repo/raw/master</url>
       <snapshots>
        <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
