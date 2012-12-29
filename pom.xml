@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>com.crawljax.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>2.1</version>
+		<version>2.2</version>
 	</parent>
 
 	<artifactId>proxy</artifactId>
@@ -18,14 +19,28 @@
 
 	<properties>
 		<crawljax.version>2.1</crawljax.version>
+		<internal.repo.path>file:///${user.home}/.m2/crawljax-mvn-repo</internal.repo.path>
 	</properties>
 
 	<scm>
 		<connection>scm:git:git@github.com:crawljax/proxy-plugin.git</connection>
 		<developerConnection>scm:git:git@github.com:crawljax/proxy-plugin.git</developerConnection>
 		<url>https://github.com/crawljax/proxy-plugin</url>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>crawljax.maven.repo</id>
+			<name>Internal Repository</name>
+			<url>${internal.repo.path}</url>
+		</repository>
+		<snapshotRepository>
+			<id>crawljax.maven.repo</id>
+			<name>Internal Repository Snapshots</name>
+			<url>${internal.repo.path}</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<licenses>
 		<license>
