@@ -3,23 +3,21 @@ package com.crawljax.plugins.proxy;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.owasp.webscarab.model.Preferences;
 import org.owasp.webscarab.model.StoreException;
 import org.owasp.webscarab.plugin.Framework;
 import org.owasp.webscarab.plugin.proxy.Proxy;
 import org.owasp.webscarab.plugin.proxy.ProxyPlugin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.crawljax.core.configuration.ProxyConfiguration;
 import com.crawljax.core.plugin.ProxyServerPlugin;
 
 public class WebScarabWrapper implements ProxyServerPlugin {
 
-	/* Logger is log4j, but java logging is also imported, so be clear about that here */
-	private static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger
-	        .getLogger(WebScarabWrapper.class.getName());
+	private static final Logger LOGGER = LoggerFactory.getLogger(WebScarabWrapper.class);
 
 	/**
 	 * List of proxy plugins that should be added to the proxy before it is started.
@@ -44,16 +42,13 @@ public class WebScarabWrapper implements ProxyServerPlugin {
 	 * Disables logging to the console normally done by WebScarab.
 	 */
 	private void disableConsoleLogging() {
-		Logger l = Logger.getLogger("org.owasp.webscarab.plugin.Framework");
-		l.setLevel(Level.OFF);
-		l = Logger.getLogger("org.owasp.webscarab.httpclient.URLFetcher");
-		l.setLevel(Level.OFF);
-		l = Logger.getLogger("org.owasp.webscarab.plugin.proxy.Listener");
-		l.setLevel(Level.OFF);
-
-		/* disable all logging */
-		l = Logger.getLogger("");
-		l.setLevel(Level.OFF);
+		// TODO disable logging for the following
+		Logger l = LoggerFactory.getLogger("org.owasp.webscarab.plugin.Framework");
+		// l. setLevel(Level.OFF);
+		l = LoggerFactory.getLogger("org.owasp.webscarab.httpclient.URLFetcher");
+		// l.setLevel(Level.OFF);
+		l = LoggerFactory.getLogger("org.owasp.webscarab.plugin.proxy.Listener");
+		// l.setLevel(Level.OFF);
 	}
 
 	/**

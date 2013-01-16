@@ -8,7 +8,7 @@
 		<version>2.2</version>
 	</parent>
 
-	<artifactId>proxy</artifactId>
+	<artifactId>proxy-plugin</artifactId>
 	<version>1.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Extendible proxy plugin.</name>
@@ -18,7 +18,7 @@
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
-		<crawljax.version>2.1</crawljax.version>
+		<crawljax.version>2.2</crawljax.version>
 		<internal.repo.path>file:///${user.home}/.m2/crawljax-mvn-repo</internal.repo.path>
 	</properties>
 
