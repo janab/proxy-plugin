@@ -92,9 +92,9 @@
 		<dependency>
 			<groupId>org.owasp.webscarab</groupId>
 			<artifactId>WebScarab</artifactId>
-			<version>[1.0.0-20121223,)</version>
+			<version>[1.0.0-20131701,)</version>
 		</dependency>
-
+   
 	</dependencies>
 
 	<repositories>
