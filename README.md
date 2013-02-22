@@ -5,7 +5,7 @@ The Proxy plugin can be used in Crawljax as follows:
 
     <dependency>
       <groupId>com.crawljax.plugins</groupId>
-      <artifactId>proxy</artifactId>
+      <artifactId>proxy-plugin</artifactId>
       <version>1.3</version>
     </dependency>
 
