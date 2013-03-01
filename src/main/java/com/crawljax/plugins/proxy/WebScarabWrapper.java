@@ -78,7 +78,7 @@ public class WebScarabWrapper implements ProxyServerPlugin {
 		}
 
 //		framework.setSession("BlackHole", null, "");
-		framework.setSession("FileSystem", new File("ConversationRecords"), "");
+		framework.setSession("FileSystem", new File("conversationRecords"), "");
 
 		/* start the proxy */
 		this.proxy.run();
