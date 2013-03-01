@@ -1,5 +1,6 @@
 package com.crawljax.plugins.proxy;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +77,8 @@ public class WebScarabWrapper implements ProxyServerPlugin {
 			proxy.addPlugin(p);
 		}
 
-		framework.setSession("BlackHole", null, "");
+//		framework.setSession("BlackHole", null, "");
+		framework.setSession("FileSystem", new File("ConversationRecords"), "");
 
 		/* start the proxy */
 		this.proxy.run();
