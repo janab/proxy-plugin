@@ -4,7 +4,6 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.core.AnyOf;
 import org.junit.Before;
 import org.junit.Test;
 

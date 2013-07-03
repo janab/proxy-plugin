@@ -135,6 +135,7 @@ public class ProxyRequestBuffer extends ProxyPlugin {
 		 *             on read write error.
 		 * @return The response.
 		 */
+		@Override
 		public Response fetchResponse(Request request) throws IOException {
 			bufferRequest(request);
 			// response currently unused since we only care

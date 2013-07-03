@@ -60,6 +60,7 @@ public class ProxyEventlessTagsInjector extends ProxyPlugin {
 		 *             On read write error.
 		 * @return The new response.
 		 */
+		@Override
 		public Response fetchResponse(Request request) throws IOException {
 
 			// insert JS into the response:

@@ -31,12 +31,12 @@ public class WebScarabWrapper implements PreCrawlingPlugin {
 	 * The WebScarab HTTP proxy object this class is a wrapper for.
 	 */
 	private Proxy proxy;
-	
+
 	public WebScarabWrapper() {
-	    // Disable the logging to console of the web scrabber.
+		// Disable the logging to console of the web scrabber.
 		SLF4JBridgeHandler.removeHandlersForRootLogger();
 		SLF4JBridgeHandler.install();
-    }
+	}
 
 	@Override
 	public void preCrawling(CrawljaxConfiguration config) {

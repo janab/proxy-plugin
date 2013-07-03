@@ -13,9 +13,7 @@ import org.owasp.webscarab.plugin.proxy.ProxyPlugin;
  * does not return a 304 Not Modified message (assumes the page is in the browser cache). When 304
  * messages are returned the proxy cannot inject Javascript.
  * 
- * @author corpaul
- * 
- *         TODO: all, can also use existing plugin in WebScarab
+ * @author corpaul TODO: all, can also use existing plugin in WebScarab
  */
 public class ProxyCacheDisabler extends ProxyPlugin {
 
@@ -31,6 +29,7 @@ public class ProxyCacheDisabler extends ProxyPlugin {
 	 * 
 	 * @return The name.
 	 */
+	@Override
 	public String getPluginName() {
 		return new String("Cache Disabler");
 	}
@@ -42,6 +41,7 @@ public class ProxyCacheDisabler extends ProxyPlugin {
 	 *            The HTTPClient for the plugin.
 	 * @return The plugin.
 	 */
+	@Override
 	public HTTPClient getProxyPlugin(HTTPClient in) {
 		return new Plugin(in);
 	}
@@ -77,6 +77,7 @@ public class ProxyCacheDisabler extends ProxyPlugin {
 		 *             Thrown on read or write error.
 		 * @return The new, modified response.
 		 */
+		@Override
 		public Response fetchResponse(Request request) throws IOException {
 			disableCache(request);
 			// response currently unused in this plugin since we only care
