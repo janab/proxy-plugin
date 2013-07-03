@@ -13,7 +13,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.crawljax.util.Helper;
+import com.crawljax.util.DomUtils;
 
 /**
  * The ProxyJSInjector proxy plugin injects Javascript into the response if it is text/html content
@@ -24,6 +24,19 @@ import com.crawljax.util.Helper;
 public class ProxyJSInjector extends ProxyPlugin {
 
 	private String jsFile;
+
+	public ProxyJSInjector() {
+	}
+
+	/**
+	 * Constructor with config parameter.
+	 * 
+	 * @param filename
+	 *            The file to inject.
+	 */
+	public ProxyJSInjector(String filename) {
+		jsFile = filename;
+	}
 
 	@Override
 	public String getPluginName() {
@@ -84,7 +97,7 @@ public class ProxyJSInjector extends ProxyPlugin {
 				if (contentType.contains("text/html")) {
 					// parse the content
 					String domStr = new String(response.getContent());
-					Document dom = Helper.getDocument(domStr);
+					Document dom = DomUtils.asDocument(domStr);
 
 					// try to get the head tag
 					NodeList nodes = dom.getElementsByTagName("body");
@@ -106,7 +119,7 @@ public class ProxyJSInjector extends ProxyPlugin {
 						nodes.item(0).appendChild(injectedJs);
 						// update the response with the content with the
 						// injected JS
-						response.setContent(Helper.getDocumentToByteArray(dom));
+						response.setContent(DomUtils.getDocumentToByteArray(dom));
 					}
 					// should not happen
 					else {
@@ -135,7 +148,7 @@ public class ProxyJSInjector extends ProxyPlugin {
 	 * @throws IOException
 	 *             On read write error.
 	 */
-	public static Element createInjectedJsNode(Document dom, String jsFile) throws IOException {
+	public Element createInjectedJsNode(Document dom, String jsFile) throws IOException {
 		// create the node
 		Element el = dom.createElement("script");
 		el.setAttribute("type", "text/javascript");
@@ -145,21 +158,4 @@ public class ProxyJSInjector extends ProxyPlugin {
 		return el;
 	}
 
-	/**
-	 * Constructor without config parameter.
-	 */
-	public ProxyJSInjector() {
-		/* TODO fix */
-		// jsFile = PropertyHelper.getInjectorJsFileValue();
-	}
-
-	/**
-	 * Constructor with config parameter.
-	 * 
-	 * @param filename
-	 *            The file to inject.
-	 */
-	public ProxyJSInjector(String filename) {
-		jsFile = filename;
-	}
 }

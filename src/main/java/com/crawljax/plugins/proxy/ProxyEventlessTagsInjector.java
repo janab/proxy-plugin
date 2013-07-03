@@ -13,7 +13,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.crawljax.util.Helper;
+import com.crawljax.util.DomUtils;
 
 public class ProxyEventlessTagsInjector extends ProxyPlugin {
 
@@ -80,7 +80,7 @@ public class ProxyEventlessTagsInjector extends ProxyPlugin {
 				if (contentType.contains("text/html")) {
 					// parse the content
 					String domStr = new String(response.getContent());
-					Document dom = Helper.getDocument(domStr);
+					Document dom = DomUtils.asDocument(domStr);
 
 					// try to get the head tag
 					NodeList nodes = dom.getElementsByTagName("script");
@@ -92,7 +92,7 @@ public class ProxyEventlessTagsInjector extends ProxyPlugin {
 						injectNode((Element) nodes.item(i), attrName);
 					}
 
-					response.setContent(Helper.getDocumentToByteArray(dom));
+					response.setContent(DomUtils.getDocumentToByteArray(dom));
 
 				}
 
@@ -113,7 +113,7 @@ public class ProxyEventlessTagsInjector extends ProxyPlugin {
 	 * @param attrName
 	 *            The attribute name.
 	 */
-	public static void injectNode(Element e, String attrName) {
+	public void injectNode(Element e, String attrName) {
 		NamedNodeMap attributes = e.getAttributes();
 		if (attributes != null) {
 			Node src = attributes.getNamedItem("src");
