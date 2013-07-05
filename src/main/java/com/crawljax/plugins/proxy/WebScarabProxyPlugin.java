@@ -18,9 +18,9 @@ import com.crawljax.core.configuration.CrawljaxConfiguration;
 import com.crawljax.core.configuration.ProxyConfiguration;
 import com.crawljax.core.plugin.PreCrawlingPlugin;
 
-public class WebScarabWrapper implements PreCrawlingPlugin {
+public class WebScarabProxyPlugin implements PreCrawlingPlugin {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(WebScarabWrapper.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(WebScarabProxyPlugin.class);
 
 	/**
 	 * List of proxy plugins that should be added to the proxy before it is started.
@@ -32,7 +32,7 @@ public class WebScarabWrapper implements PreCrawlingPlugin {
 	 */
 	private Proxy proxy;
 
-	public WebScarabWrapper() {
+	public WebScarabProxyPlugin() {
 		// Disable the logging to console of the web scrabber.
 		SLF4JBridgeHandler.removeHandlersForRootLogger();
 		SLF4JBridgeHandler.install();
@@ -63,7 +63,8 @@ public class WebScarabWrapper implements PreCrawlingPlugin {
 		Framework framework = new Framework();
 
 		/* set listening port before creating the object to avoid warnings */
-		Preferences.setPreference("Proxy.listeners", "127.0.0.1:" + config.getPort());
+		Preferences.setPreference("Proxy.listeners",
+		        config.getHostname() + ":" + config.getPort());
 
 		this.proxy = new Proxy(framework);
 

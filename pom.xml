@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>com.crawljax.plugins</groupId>
-		<artifactId>plugin</artifactId>
-		<version>2.2</version>
+		<artifactId>crawljax-plugins-parent</artifactId>
+		<version>3.1</version>
 	</parent>
 
 	<artifactId>proxy-plugin</artifactId>
@@ -17,7 +18,7 @@
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
-		<crawljax.version>2.2</crawljax.version>
+		<crawljax.version>3.1</crawljax.version>
 		<internal.repo.path>file:///${user.home}/.m2/crawljax-mvn-repo</internal.repo.path>
 	</properties>
 
@@ -54,26 +55,15 @@
 		<url>https://github.com/crawljax/proxy-plugin/issues</url>
 	</issueManagement>
 
-	<developers>
-		<developer>
-			<id>frank</id>
-		</developer>
-		<developer>
-			<id>amesbah</id>
-			<name>Ali Mesbah</name>
-			<email>a.mesbah@gmail.com</email>
-			<url>http://www.ece.ubc.ca/~amesbah/</url>
-			<organization>SALTLab, UBC</organization>
-			<organizationUrl>http://salt.ece.ubc.ca</organizationUrl>
-			<timezone>-8</timezone>
-		</developer>
-	</developers>
-
 	<dependencies>
-
 		<dependency>
 			<groupId>com.crawljax</groupId>
-			<artifactId>crawljax</artifactId>
+			<artifactId>crawljax-core</artifactId>
+			<version>${crawljax.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.crawljax</groupId>
+			<artifactId>crawljax-test-utils</artifactId>
 			<version>${crawljax.version}</version>
 		</dependency>
 
@@ -94,7 +84,7 @@
 			<artifactId>WebScarab</artifactId>
 			<version>[1.0.0-20131701,)</version>
 		</dependency>
-   
+
 	</dependencies>
 
 	<repositories>

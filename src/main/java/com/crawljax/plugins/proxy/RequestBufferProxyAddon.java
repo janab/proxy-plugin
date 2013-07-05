@@ -15,7 +15,7 @@ import org.owasp.webscarab.plugin.proxy.ProxyPlugin;
  * contents are copied and returned an the local buffer is emptied. The complete buffer contains all
  * requests made since the start of Crawljax.
  */
-public class ProxyRequestBuffer extends ProxyPlugin {
+public class RequestBufferProxyAddon extends ProxyPlugin {
 
 	/**
 	 * The local buffer. Contains the requests since the last getRequestBuffer() call.
@@ -39,7 +39,7 @@ public class ProxyRequestBuffer extends ProxyPlugin {
 	 * @param bufferAllRequests
 	 *            Whether to buffer all of the requests.
 	 */
-	public ProxyRequestBuffer(boolean bufferAllRequests) {
+	public RequestBufferProxyAddon(boolean bufferAllRequests) {
 		this.buffer = new LinkedList<Request>();
 		this.bufferAllRequests = bufferAllRequests;
 		if (this.bufferAllRequests) {

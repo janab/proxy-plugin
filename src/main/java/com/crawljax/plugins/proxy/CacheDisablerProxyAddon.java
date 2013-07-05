@@ -15,12 +15,12 @@ import org.owasp.webscarab.plugin.proxy.ProxyPlugin;
  * 
  * @author corpaul TODO: all, can also use existing plugin in WebScarab
  */
-public class ProxyCacheDisabler extends ProxyPlugin {
+public class CacheDisablerProxyAddon extends ProxyPlugin {
 
 	/**
 	 * Constructor.
 	 */
-	public ProxyCacheDisabler() {
+	public CacheDisablerProxyAddon() {
 
 	}
 

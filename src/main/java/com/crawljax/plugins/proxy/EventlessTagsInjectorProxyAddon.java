@@ -15,11 +15,11 @@ import org.w3c.dom.NodeList;
 
 import com.crawljax.util.DomUtils;
 
-public class ProxyEventlessTagsInjector extends ProxyPlugin {
+public class EventlessTagsInjectorProxyAddon extends ProxyPlugin {
 
 	@Override
 	public String getPluginName() {
-		return "ProxyEventlessTagsInjector";
+		return "EventlessTagsInjectorProxyAddon";
 	}
 
 	@Override
