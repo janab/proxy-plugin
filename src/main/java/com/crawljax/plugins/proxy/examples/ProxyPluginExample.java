@@ -32,7 +32,7 @@ public class ProxyPluginExample {
 		// We are going to use the WebScarab proxy plugin
 		WebScarabProxyPlugin proxyPlugin = new WebScarabProxyPlugin();
 		// Provide the JS file to be inserted
-		proxyPlugin.addPlugin(new JSInjectorProxyAddon(new File("inject.js")));
+		proxyPlugin.addPlugin(new JSInjectorProxyAddon(new File("foo.js")));
 		builder.addPlugin(proxyPlugin);
 
 		// Configure the proxy to use the port 8084 (you can change this of course)
